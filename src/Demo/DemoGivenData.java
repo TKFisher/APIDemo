@@ -9,10 +9,10 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 
-public class basics {
+public class DemoGivenData {
 
         @Test
-        public void Test () {
+        public void givenData () {
 
             // Pass Base URL
             RestAssured.baseURI = "https://maps.googleapis.com/";
