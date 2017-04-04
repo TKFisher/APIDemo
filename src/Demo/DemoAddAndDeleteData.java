@@ -5,12 +5,26 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 public class DemoAddAndDeleteData {
+
+    Properties properties = new Properties();
+
+    @BeforeTest
+    public void getData() throws IOException {
+
+        FileInputStream fis = new FileInputStream("/Users/tracyfisher/GIT_Projects/Training/APIDemo/src/files/env.properties");
+        properties.load(fis);
+    }
 
 @Test
     public void addAndDeletePlace(){
@@ -30,7 +44,7 @@ public class DemoAddAndDeleteData {
             "\"language\": \"en-AU\""+
             "}";
 
-    RestAssured.baseURI = "https://maps.googleapis.com/";
+    RestAssured.baseURI = properties.getProperty("HOST");
 
     // Get the response
     Response response = given().
