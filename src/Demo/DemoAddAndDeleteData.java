@@ -48,7 +48,7 @@ public class DemoAddAndDeleteData {
 
     // Get the response
     Response response = given().
-            queryParam("key", "AIzaSyBde6fW-IAx1j-J5TqNOwmvx-_QPHozqRY").
+            queryParam("key", properties.getProperty("KEY")).
             body(body).
             when().
             post("/maps/api/place/add/json").
