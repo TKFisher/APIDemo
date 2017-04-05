@@ -14,6 +14,7 @@ import java.util.Properties;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.IsEqual.equalTo;
+import files.resource;
 
 public class DemoAddAndDeleteData {
 
@@ -51,7 +52,7 @@ public class DemoAddAndDeleteData {
             queryParam("key", properties.getProperty("KEY")).
             body(body).
             when().
-            post("/maps/api/place/add/json").
+            post(resource.placePostData()).
             then().assertThat().statusCode(200).and().
             contentType(ContentType.JSON).and().
             body("status", equalTo("OK")).

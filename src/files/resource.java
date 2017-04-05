@@ -1,7 +1,11 @@
 package files;
 
-/**
- * Created by tracyfisher on 4/5/17.
- */
 public class resource {
+
+
+    public static String placePostData () {
+        String resource = "/maps/api/place/add/json";
+        return resource;
+
+    }
 }
