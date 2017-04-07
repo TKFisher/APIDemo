@@ -1,9 +1,9 @@
 package Demo;
 
 
-import com.sun.javaws.jnl.XMLFormat;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.path.xml.XmlPath;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
@@ -12,7 +12,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.core.IsEqual.equalTo;
 
 
 public class DemoPostXMLData {
@@ -33,12 +32,13 @@ public class DemoPostXMLData {
                 extract().
                 response();
 
-        // debug to show xml response to use for validation
+        // convert response to string w/debug output
         String responseString = returnPostData.asString();
         System.out.println(responseString);
 
-        // TODO: convert response to xml/json
-
+        // convert string response to xml w/debug output 
+        XmlPath responseXML = new XmlPath(responseString);
+        System.out.println((String) responseXML.get("PlaceAddResponse.place_id"));
     }
 
     // Method to handle xml string by reading characters as bytes and casting as a string.
