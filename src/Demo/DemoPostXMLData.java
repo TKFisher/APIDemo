@@ -36,7 +36,7 @@ public class DemoPostXMLData {
         String responseString = returnPostData.asString();
         System.out.println(responseString);
 
-        // convert string response to xml w/debug output 
+        // convert string response to xml w/debug output
         XmlPath responseXML = new XmlPath(responseString);
         System.out.println((String) responseXML.get("PlaceAddResponse.place_id"));
     }
