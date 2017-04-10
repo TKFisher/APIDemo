@@ -14,8 +14,8 @@ import java.util.Properties;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.IsEqual.equalTo;
-import files.resource;
-import files.body;
+import files.Resources;
+import files.Body;
 
 public class DemoAddAndDeleteData {
 
@@ -38,9 +38,9 @@ public class DemoAddAndDeleteData {
     // Get the response
     Response response = given().
             queryParam("key", properties.getProperty("KEY")).
-            body(body.getPostData()).
+            body(Body.getPostData()).
             when().
-            post(resource.placePostData()).
+            post(Resources.placePostData()).
             then().assertThat().statusCode(200).and().
             contentType(ContentType.JSON).and().
             body("status", equalTo("OK")).

@@ -1,6 +1,6 @@
 package files;
 
-public class resource {
+public class Resources {
 
 
     public static String placePostData () {

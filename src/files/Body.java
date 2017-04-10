@@ -3,7 +3,7 @@ package files;
 /**
  * Created by tracyfisher on 4/5/17.
  */
-public class body {
+public class Body {
 
     public static String getPostData(){
 
